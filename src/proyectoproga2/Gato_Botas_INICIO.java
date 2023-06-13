@@ -124,8 +124,8 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
         RETROCEDER.setBackground(new java.awt.Color(0, 0, 0));
         RETROCEDER.setFont(new java.awt.Font("Berlin Sans FB", 1, 12)); // NOI18N
         RETROCEDER.setForeground(new java.awt.Color(255, 255, 255));
-        RETROCEDER.setText("RETROCEDER");
-        RETROCEDER.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        RETROCEDER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/atrasar.png"))); // NOI18N
+        RETROCEDER.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         RETROCEDER.setContentAreaFilled(false);
         RETROCEDER.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RETROCEDER.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -138,9 +138,8 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
 
         Pausar_Reproducir.setBackground(new java.awt.Color(0, 0, 0));
         Pausar_Reproducir.setFont(new java.awt.Font("Berlin Sans FB", 1, 12)); // NOI18N
-        Pausar_Reproducir.setForeground(new java.awt.Color(255, 255, 255));
-        Pausar_Reproducir.setText("PAUSAR");
-        Pausar_Reproducir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        Pausar_Reproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/Pausa_Playy.png"))); // NOI18N
+        Pausar_Reproducir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Pausar_Reproducir.setContentAreaFilled(false);
         Pausar_Reproducir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pausar_Reproducir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -154,11 +153,13 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
         ADELANTAR.setBackground(new java.awt.Color(0, 0, 0));
         ADELANTAR.setFont(new java.awt.Font("Berlin Sans FB", 1, 12)); // NOI18N
         ADELANTAR.setForeground(new java.awt.Color(255, 255, 255));
-        ADELANTAR.setText("ADELANTAR");
-        ADELANTAR.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        ADELANTAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/adelantar.png"))); // NOI18N
+        ADELANTAR.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ADELANTAR.setContentAreaFilled(false);
         ADELANTAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ADELANTAR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ADELANTAR.setMargin(new java.awt.Insets(4, 14, 2, 14));
+        ADELANTAR.setMaximumSize(new java.awt.Dimension(73, 1));
         ADELANTAR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ADELANTARMouseClicked(evt);
@@ -208,10 +209,9 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tiempoLabel)
-                        .addComponent(tiempoTranscurridoLabel))
-                    .addComponent(barraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tiempoTranscurridoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(barraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tiempoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -258,11 +258,11 @@ boolean estado = true;
     private void Pausar_ReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pausar_ReproducirActionPerformed
         // TODO add your handling code here:
         if (estado) {
-            Pausar_Reproducir.setText("REPRODUCIR");
+           // Pausar_Reproducir.setText("REPRODUCIR");
             oracleVid.pause();
             estado = false;
         } else if (!estado) {
-            Pausar_Reproducir.setText("PAUSAR");
+           // Pausar_Reproducir.setText("PAUSAR");
             oracleVid.play();
             estado = true;
         }
@@ -270,7 +270,6 @@ boolean estado = true;
 
     private void barraProgresoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraProgresoMouseReleased
         // TODO add your handling code here:
-        //tratar de trabajar todo en segundo
 
         //reproduce se obtiene el valor del jSlider1 y se manda al video
         int val = barraProgreso.getValue();
