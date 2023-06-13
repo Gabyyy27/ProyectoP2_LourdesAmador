@@ -26,11 +26,11 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
 
     public Gato_Botas_INICIO(Media file) {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
         createScene(file);
         setTitle("GATO CON BOTAS INTERACTIVO");
-        setResizable(true);
-        //setLocationRelativeTo(null);
+        setResizable(false);
+        setLocationRelativeTo(null);
         Panel_Movie.setLayout(new BorderLayout());
         Panel_Movie.add(jfxPanel, BorderLayout.CENTER); // MediaView en el centro
 //        jPanel2.add(barraProgreso, BorderLayout.SOUTH); // JSlider en la parte inferior
@@ -68,12 +68,11 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
                 Scene scene = new Scene(root, 1200, 640);
 
                 jfxPanel.setScene(scene);
-                jfxPanel.setPreferredSize(new Dimension(1200, 640));
-                jfxPanel.setMaximumSize(new Dimension(1200, 640));
-                jfxPanel.setMinimumSize(new Dimension(1200, 640));
+//                jfxPanel.setPreferredSize(new Dimension(1200, 640));
+//                jfxPanel.setMaximumSize(new Dimension(1200, 640));
+//                jfxPanel.setMinimumSize(new Dimension(1200, 640));
 
-                validate(); // Asegura la actualización del diseño
-
+//                validate(); // Asegura la actualización del diseño
             }
         });
         asiganarTiempo();
@@ -84,97 +83,174 @@ public class Gato_Botas_INICIO extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        Panel_Movie = new javax.swing.JPanel();
+        VolumeSlider = new javax.swing.JSlider();
+        jPanel1 = new javax.swing.JPanel();
         RETROCEDER = new javax.swing.JButton();
         Pausar_Reproducir = new javax.swing.JButton();
         ADELANTAR = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         tiempoTranscurridoLabel = new javax.swing.JLabel();
         barraProgreso = new javax.swing.JSlider();
         tiempoLabel = new javax.swing.JLabel();
-        VolumeSlider = new javax.swing.JSlider();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        Panel_Movie = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.FlowLayout());
+        setBackground(new java.awt.Color(0, 0, 0));
 
-        RETROCEDER.setText("RETROCEDER");
-        getContentPane().add(RETROCEDER);
+        jLayeredPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jLayeredPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(330, 200));
+        jLayeredPane1.setLayout(new java.awt.BorderLayout(2, 0));
 
-        Pausar_Reproducir.setText("PLAY");
-        Pausar_Reproducir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Pausar_ReproducirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Pausar_Reproducir);
+        Panel_Movie.setBackground(new java.awt.Color(0, 0, 0));
+        Panel_Movie.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Panel_Movie.setPreferredSize(new java.awt.Dimension(344, 226));
 
-        ADELANTAR.setText("ADELANTAR");
-        getContentPane().add(ADELANTAR);
-
-        tiempoTranscurridoLabel.setText("00:00:00");
-        getContentPane().add(tiempoTranscurridoLabel);
-
-        barraProgreso.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        barraProgreso.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                barraProgresoMouseReleased(evt);
-            }
-        });
-        getContentPane().add(barraProgreso);
-
-        tiempoLabel.setText("00:00:00");
-        getContentPane().add(tiempoLabel);
-
+        VolumeSlider.setBackground(new java.awt.Color(0, 0, 0));
+        VolumeSlider.setFont(new java.awt.Font("Mongolian Baiti", 1, 12)); // NOI18N
         VolumeSlider.setOrientation(javax.swing.JSlider.VERTICAL);
         VolumeSlider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        VolumeSlider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VolumeSlider.setValueIsAdjusting(true);
         VolumeSlider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 VolumeSliderMouseReleased(evt);
             }
         });
-        getContentPane().add(VolumeSlider);
 
-        jLayeredPane1.setBackground(new java.awt.Color(0, 0, 0));
-        jLayeredPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLayeredPane1.setPreferredSize(new java.awt.Dimension(330, 200));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        Panel_Movie.setPreferredSize(new java.awt.Dimension(344, 226));
+        RETROCEDER.setBackground(new java.awt.Color(0, 0, 0));
+        RETROCEDER.setFont(new java.awt.Font("Berlin Sans FB", 1, 12)); // NOI18N
+        RETROCEDER.setForeground(new java.awt.Color(255, 255, 255));
+        RETROCEDER.setText("RETROCEDER");
+        RETROCEDER.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        RETROCEDER.setContentAreaFilled(false);
+        RETROCEDER.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RETROCEDER.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        RETROCEDER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RETROCEDERMouseClicked(evt);
+            }
+        });
+        jPanel1.add(RETROCEDER);
+
+        Pausar_Reproducir.setBackground(new java.awt.Color(0, 0, 0));
+        Pausar_Reproducir.setFont(new java.awt.Font("Berlin Sans FB", 1, 12)); // NOI18N
+        Pausar_Reproducir.setForeground(new java.awt.Color(255, 255, 255));
+        Pausar_Reproducir.setText("PAUSAR");
+        Pausar_Reproducir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        Pausar_Reproducir.setContentAreaFilled(false);
+        Pausar_Reproducir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Pausar_Reproducir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Pausar_Reproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pausar_ReproducirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Pausar_Reproducir);
+
+        ADELANTAR.setBackground(new java.awt.Color(0, 0, 0));
+        ADELANTAR.setFont(new java.awt.Font("Berlin Sans FB", 1, 12)); // NOI18N
+        ADELANTAR.setForeground(new java.awt.Color(255, 255, 255));
+        ADELANTAR.setText("ADELANTAR");
+        ADELANTAR.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        ADELANTAR.setContentAreaFilled(false);
+        ADELANTAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ADELANTAR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ADELANTAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ADELANTARMouseClicked(evt);
+            }
+        });
+        jPanel1.add(ADELANTAR);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        tiempoTranscurridoLabel.setBackground(new java.awt.Color(255, 255, 255));
+        tiempoTranscurridoLabel.setFont(new java.awt.Font("Mongolian Baiti", 1, 12)); // NOI18N
+        tiempoTranscurridoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tiempoTranscurridoLabel.setText("00:00:00");
+        tiempoTranscurridoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        barraProgreso.setBackground(new java.awt.Color(0, 0, 0));
+        barraProgreso.setFont(new java.awt.Font("Mongolian Baiti", 1, 12)); // NOI18N
+        barraProgreso.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        barraProgreso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        barraProgreso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                barraProgresoMouseReleased(evt);
+            }
+        });
+
+        tiempoLabel.setBackground(new java.awt.Color(255, 255, 255));
+        tiempoLabel.setFont(new java.awt.Font("Mongolian Baiti", 1, 12)); // NOI18N
+        tiempoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tiempoLabel.setText("00:00:00");
+        tiempoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tiempoTranscurridoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(barraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tiempoLabel)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tiempoLabel)
+                        .addComponent(tiempoTranscurridoLabel))
+                    .addComponent(barraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout Panel_MovieLayout = new javax.swing.GroupLayout(Panel_Movie);
         Panel_Movie.setLayout(Panel_MovieLayout);
         Panel_MovieLayout.setHorizontalGroup(
             Panel_MovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Panel_MovieLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_MovieLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(VolumeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         Panel_MovieLayout.setVerticalGroup(
             Panel_MovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 174, Short.MAX_VALUE)
+            .addGroup(Panel_MovieLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(VolumeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLayeredPane1.setLayer(Panel_Movie, javax.swing.JLayeredPane.MODAL_LAYER);
+        jLayeredPane1.add(Panel_Movie, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 326, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Panel_Movie, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                    .addContainerGap()))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Panel_Movie, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                    .addContainerGap()))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        getContentPane().add(jLayeredPane1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,11 +258,11 @@ boolean estado = true;
     private void Pausar_ReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pausar_ReproducirActionPerformed
         // TODO add your handling code here:
         if (estado) {
-            Pausar_Reproducir.setText("Reproducir");
+            Pausar_Reproducir.setText("REPRODUCIR");
             oracleVid.pause();
             estado = false;
         } else if (!estado) {
-            Pausar_Reproducir.setText("Pausar");
+            Pausar_Reproducir.setText("PAUSAR");
             oracleVid.play();
             estado = true;
         }
@@ -209,6 +285,34 @@ boolean estado = true;
         oracleVid.setVolume(val);
 
     }//GEN-LAST:event_VolumeSliderMouseReleased
+
+    private void ADELANTARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ADELANTARMouseClicked
+        // TODO add your handling code here:
+        if (estado) {
+            // Obtener la posición actual del video
+            Duration currentPosition = oracleVid.getCurrentTime();
+
+            // Calcular la nueva posición adelantada
+            Duration newPosition = currentPosition.add(Duration.seconds(10)); // Adelanta 10 segundos
+
+            // Establecer la nueva posición del video
+            oracleVid.seek(newPosition);
+        }
+    }//GEN-LAST:event_ADELANTARMouseClicked
+
+    private void RETROCEDERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RETROCEDERMouseClicked
+        // TODO add your handling code here:
+        if (estado) {
+            // Obtener la posición actual del video
+            Duration currentPosition = oracleVid.getCurrentTime();
+
+            // Calcular la nueva posición retrocedida
+            Duration newPosition = currentPosition.subtract(Duration.seconds(10)); // Retrocede 10 segundos
+
+            // Establecer la nueva posición del video
+            oracleVid.seek(newPosition);
+        }
+    }//GEN-LAST:event_RETROCEDERMouseClicked
 
     void asiganarTiempo() {
         try {
@@ -309,6 +413,8 @@ boolean estado = true;
     private javax.swing.JSlider VolumeSlider;
     private javax.swing.JSlider barraProgreso;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel tiempoLabel;
     private javax.swing.JLabel tiempoTranscurridoLabel;
     // End of variables declaration//GEN-END:variables
