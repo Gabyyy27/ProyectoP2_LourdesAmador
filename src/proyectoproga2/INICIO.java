@@ -6,7 +6,12 @@
 package proyectoproga2;
 
 import java.io.File;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 /**
  *
@@ -14,12 +19,34 @@ import javafx.scene.media.Media;
  */
 public class INICIO extends javax.swing.JFrame {
 
+    private final JFXPanel jfxPanel = new JFXPanel();
+
+    private MediaPlayer mediaPlayer1;
+    private MediaView mediaView1;
+
     /**
      * Creates new form INICIO
      */
     public INICIO() {
         initComponents();
+
         this.setExtendedState(MAXIMIZED_BOTH);
+        initMediaPlayer();
+    }
+
+    private void initMediaPlayer() {
+        File file1 = new File("C:\\Users\\Lourdes\\Documents\\NetBeansProjects\\ProyectoProga2\\src\\proyectoproga2\\inicio_GCB.mp4");
+        mediaPlayer1 = new MediaPlayer(
+                new Media(file1.toURI().toString())
+        );
+        mediaView1 = new MediaView(mediaPlayer1);
+        mediaView1.setPreserveRatio(true);
+    }
+
+    private void playVideo1() {
+        jfxPanel.setScene(new Scene(new Group(mediaView1)));
+        mediaPlayer1.play();
+        //  asiganarTiempo();
 
     }
 
@@ -36,6 +63,10 @@ public class INICIO extends javax.swing.JFrame {
         Salir = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Cerrar_Sesion = new javax.swing.JMenuItem();
+        ELEGIR = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         INICIO = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -46,7 +77,8 @@ public class INICIO extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        boton1 = new javax.swing.JButton();
+        INGRESAR_GCB = new javax.swing.JButton();
+        boton2 = new javax.swing.JButton();
 
         Salir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         Salir.setText("Salir");
@@ -66,6 +98,61 @@ public class INICIO extends javax.swing.JFrame {
             }
         });
         PopUp_Salir.add(Cerrar_Sesion);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 2, true));
+
+        jButton3.setBackground(new java.awt.Color(204, 0, 0));
+        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("VER PELICULA CON OPCIONES ALEATORIAS");
+        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
+        jButton4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("JUGAR");
+        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(196, 196, 196))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ELEGIRLayout = new javax.swing.GroupLayout(ELEGIR.getContentPane());
+        ELEGIR.getContentPane().setLayout(ELEGIRLayout);
+        ELEGIRLayout.setHorizontalGroup(
+            ELEGIRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        ELEGIRLayout.setVerticalGroup(
+            ELEGIRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NETFLIX");
@@ -127,13 +214,23 @@ public class INICIO extends javax.swing.JFrame {
         jButton12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/gato con botas.png"))); // NOI18N
-        boton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton1.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
-        boton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        INGRESAR_GCB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/gato con botas.png"))); // NOI18N
+        INGRESAR_GCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        INGRESAR_GCB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        INGRESAR_GCB.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
+        INGRESAR_GCB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton1MouseClicked(evt);
+                INGRESAR_GCBMouseClicked(evt);
+            }
+        });
+
+        boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/MARIO_BROS.png"))); // NOI18N
+        boton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton2.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
+        boton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton2MouseClicked(evt);
             }
         });
 
@@ -152,7 +249,10 @@ public class INICIO extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3)
-                            .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(INICIOLayout.createSequentialGroup()
+                                .addComponent(INGRESAR_GCB, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(boton2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(INICIOLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -191,7 +291,9 @@ public class INICIO extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addComponent(jLabel3)
                 .addGap(29, 29, 29)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(INICIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(INGRESAR_GCB, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(276, Short.MAX_VALUE))
         );
 
@@ -236,20 +338,34 @@ public class INICIO extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonMouseExited
 
-    private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-        System.out.println("inicia");
-        File file=new File("C:\\Users\\Lourdes\\Documents\\NetBeansProjects\\ProyectoProga2\\src\\proyectoproga2\\inicio_GCB.mp4");
-        System.out.println(file.isFile());
-        Media media=new Media(file.toURI().toString());
-         //Media file = new Media("file://C://Users//Jose//Videos//Video3.mp4");
-         //Media file = new Media("file:/C:/Users/Jose_Duran/Desktop/videos/DavidGuetta-Dangerous.mp4");
-         System.out.println(file);
-        Gato_Botas_INICIO v = new Gato_Botas_INICIO(media);
-        
-        v.setVisible(true);
-    }//GEN-LAST:event_boton1MouseClicked
-    
+    private void INGRESAR_GCBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_INGRESAR_GCBMouseClicked
+//        System.out.println("inicia");
+//        File file=new File("C:\\Users\\Lourdes\\Documents\\NetBeansProjects\\ProyectoProga2\\src\\proyectoproga2\\inicio_GCB.mp4");
 
+        INGRESAR();
+    }//GEN-LAST:event_INGRESAR_GCBMouseClicked
+
+    private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton2MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        
+         ELEGIR.setVisible(false);
+            dispose();
+            // Crear una instancia de la nueva ventana
+           Gato_Botas_INICIO opcionesVentana = new Gato_Botas_INICIO();
+
+            // Mostrar la nueva ventana
+           opcionesVentana.setVisible(true);
+    }//GEN-LAST:event_jButton4MouseClicked
+private void INGRESAR(){
+        ELEGIR.pack();
+        ELEGIR.setLocationRelativeTo(this);
+        ELEGIR.setModal(true);
+        ELEGIR.setVisible(true);
+     }
     /**
      * @param args the command line arguments
      */
@@ -289,19 +405,24 @@ public class INICIO extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Cerrar_Sesion;
+    private javax.swing.JDialog ELEGIR;
+    private javax.swing.JButton INGRESAR_GCB;
     private javax.swing.JPanel INICIO;
     private javax.swing.JPopupMenu PopUp_Salir;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JButton boton;
-    private javax.swing.JButton boton1;
+    private javax.swing.JButton boton2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

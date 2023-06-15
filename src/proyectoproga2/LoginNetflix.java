@@ -42,7 +42,7 @@ public class LoginNetflix extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Panel_LOGIN = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        INICIAR_SESION = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -141,15 +141,15 @@ public class LoginNetflix extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoproga2/netflix2.png"))); // NOI18N
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("INICIAR SESION");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        INICIAR_SESION.setBackground(new java.awt.Color(255, 0, 0));
+        INICIAR_SESION.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        INICIAR_SESION.setForeground(new java.awt.Color(255, 255, 255));
+        INICIAR_SESION.setText("INICIAR SESION");
+        INICIAR_SESION.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        INICIAR_SESION.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        INICIAR_SESION.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                INICIAR_SESIONActionPerformed(evt);
             }
         });
 
@@ -173,7 +173,7 @@ public class LoginNetflix extends javax.swing.JFrame {
                 .addContainerGap(216, Short.MAX_VALUE)
                 .addGroup(Panel_LOGINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
+                    .addComponent(INICIAR_SESION)
                     .addComponent(jLabel2))
                 .addContainerGap(237, Short.MAX_VALUE))
         );
@@ -183,7 +183,7 @@ public class LoginNetflix extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(INICIAR_SESION, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(145, Short.MAX_VALUE))
@@ -203,21 +203,24 @@ public class LoginNetflix extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void INICIAR_SESIONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INICIAR_SESIONActionPerformed
         // TODO add your handling code here:
         INGRESAR();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_INICIAR_SESIONActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("inicia");
-        File file=new File("C:\\Users\\Lourdes\\Documents\\NetBeansProjects\\ProyectoProga2\\src\\proyectoproga2\\inicio_GCB.mp4");
-        System.out.println(file.isFile());
-        Media media=new Media(file.toURI().toString());
-        System.out.println(file);
-        Gato_Botas_INICIO v = new Gato_Botas_INICIO(media);
-        
-        v.setVisible(true);
+//        // TODO add your handling code here:
+//        System.out.println("inicia");
+//        File file=new File("C:\\Users\\Lourdes\\Documents\\NetBeansProjects\\ProyectoProga2\\src\\proyectoproga2\\inicio_GCB.mp4");
+//        System.out.println(file.isFile());
+//        Media media=new Media(file.toURI().toString());
+//        System.out.println(file);
+        Panel_LOGIN.setVisible(false);
+        dispose();
+        Gato_Botas_INICIO opcionesVentana = new Gato_Botas_INICIO();
+
+        // Mostrar la nueva ventana
+        opcionesVentana.setVisible(true);
 //        LOGIN.setVisible(false);
 //            dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -236,10 +239,10 @@ public class LoginNetflix extends javax.swing.JFrame {
             LOGIN.setVisible(false);
             dispose();
             // Crear una instancia de la nueva ventana
-           INICIO opcionesVentana = new INICIO();
+            INICIO opcionesVentana = new INICIO();
 
             // Mostrar la nueva ventana
-           opcionesVentana.setVisible(true);
+            opcionesVentana.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "No se pudo iniciar sesion");
         }
@@ -248,12 +251,13 @@ public class LoginNetflix extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-     private void INGRESAR(){
+    private void INGRESAR() {
         LOGIN.pack();
         LOGIN.setLocationRelativeTo(this);
         LOGIN.setModal(true);
         LOGIN.setVisible(true);
-     }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -290,9 +294,9 @@ public class LoginNetflix extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton INICIAR_SESION;
     private javax.swing.JDialog LOGIN;
     private javax.swing.JPanel Panel_LOGIN;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
